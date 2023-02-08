@@ -1,4 +1,5 @@
 const Employee = require('./models/Employee');
+const User = require('./models/User');
 
 exports.resolvers = {
     Query: {
@@ -9,7 +10,8 @@ exports.resolvers = {
             return Employee.findById(args.id)
         },
         login: async (parent, args) => {
-            return User.findById(args.id)
+            return User.find({username:args.username,
+                email:args.email,password:args.password})
         },
         getEmployeeByGender: async (parent, args) => {
             return Employee.find({"gender" : args.gender})

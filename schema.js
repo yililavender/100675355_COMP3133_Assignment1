@@ -25,7 +25,9 @@ exports.typeDefs = gql `
 
         getEmployeeByID(id: ID!): Employee
         
-        login(id: ID!): User
+        login(username: String!
+                email: String!
+                password: String!): User
 
         getEmployeeByGender(gender: String!): [Employee]
     }
